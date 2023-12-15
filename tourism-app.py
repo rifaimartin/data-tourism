@@ -53,10 +53,10 @@ st.write(data)
 # Prepare features for prediction
 
 # Process categorical columns using One-Hot Encoding
-categorical_columns = ['Location']  # Categorical columns that need encoding
-for col in categorical_columns:
-    encoded_cols = pd.get_dummies(data[col], prefix=col)
-    data = pd.concat([data, encoded_cols], axis=1)
+# categorical_columns = ['Location']  # Categorical columns that need encoding
+# for col in categorical_columns:
+#     encoded_cols = pd.get_dummies(data[col], prefix=col)
+#     data = pd.concat([data, encoded_cols], axis=1)
 
 features = ['User_Id', 'Place_Id', 'Time_Minutes']  # Sesuaikan dengan fitur yang ingin digunakan # Adjust features accordingly
 # Prepare data for prediction (select only relevant features)
