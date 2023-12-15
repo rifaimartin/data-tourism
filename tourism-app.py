@@ -40,9 +40,15 @@ if uploaded_file is not None:
 
 # Combines user input features with entire penguins dataset
 # This will be useful for the encoding phase
-df = pd.read_csv('tourism_rating_cleaned.csv')
-# tourism = tourism_raw.drop(columns=['Unnamed: 11'])
+tourism_raw = pd.read_csv('tourism_rating_cleaned.csv')
+tourism = tourism_raw.drop(columns=['Age'])
+tourism = tourism_raw.drop(columns=['Category'])
+tourism = tourism_raw.drop(columns=['City'])
+tourism = tourism_raw.drop(columns=['Coordinate'])
+tourism = tourism_raw.drop(columns=['Description'])
+
 # df = tourism_raw 
+df = tourism
 
 # Encoding of ordinal features
 # https://www.kaggle.com/pratik1120/penguin-dataset-eda-classification-and-clustering
