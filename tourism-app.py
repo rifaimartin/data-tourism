@@ -60,7 +60,7 @@ st.write(data)
 
 features = ['User_Id', 'Place_Id', 'Time_Minutes']  # Sesuaikan dengan fitur yang ingin digunakan # Adjust features accordingly
 # Prepare data for prediction (select only relevant features)
-data_for_prediction = data[features]
+data_for_prediction = data[features].iloc[[0]]
 
 # Perform prediction using the loaded model
 prediction = load_clf.predict(data_for_prediction)
