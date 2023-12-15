@@ -58,7 +58,7 @@ st.write(data)
 #     encoded_cols = pd.get_dummies(data[col], prefix=col)
 #     data = pd.concat([data, encoded_cols], axis=1)
 
-features = ['User_Id', 'Place_Id', 'Time_Minutes']  # Sesuaikan dengan fitur yang ingin digunakan # Adjust features accordingly
+features = ['User_Id', 'Place_Id', 'Time_Minutes', 'Age', 'Price']  # Sesuaikan dengan fitur yang ingin digunakan # Adjust features accordingly
 # Prepare data for prediction (select only relevant features)
 data_for_prediction = data[features].iloc[[0]]
 
