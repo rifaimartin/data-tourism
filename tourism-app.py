@@ -68,17 +68,23 @@ if uploaded_file is not None:
 #     st.write('Awaiting CSV file to be uploaded. Currently using example input parameters (shown below).')
 #     st.write(df)
 
-# Reads in saved classification model
+# Memuat model yang benar (misalnya RandomForestClassifier)
 load_clf = pickle.load(open('tourism_rating.pkl', 'rb'))
 
-# Apply model to make predictions
+# Mengecek kembali fitur-fitur yang akan digunakan untuk prediksi
+features = ['User_Id', 'Location', 'Place_Id', 'Time_Minutes']  # Sesuaikan dengan fitur yang digunakan saat melatih model
+
+# Memastikan dataframe yang digunakan sesuai dengan fitur yang diharapkan
+df = pd.read_csv('tourism_rating_cleaned.csv')
+df = df[features]  # Mengambil hanya fitur-fitur yang digunakan saat pelatihan
+
+# Menampilkan fitur-fitur yang akan digunakan untuk prediksi
+st.subheader('User Input features')
+st.write(df)
+
+# Melakukan prediksi dengan model yang telah dimuat
 prediction = load_clf.predict(df)
-# prediction_proba = load_clf.predict_proba(df)
 
-
+# Menampilkan hasil prediksi
 st.subheader('Prediction')
-penguins_species = np.array(['User_Id','Location','Place_Id', 'Time_Minutes'])
-st.write(penguins_species[prediction])
-
-# st.subheader('Prediction Probability')
-# st.write(prediction_proba)
+st.write(prediction)
