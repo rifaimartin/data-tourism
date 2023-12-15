@@ -56,7 +56,6 @@ categorical_columns = ['Location']  # Categorical columns that need encoding
 for col in categorical_columns:
     encoded_cols = pd.get_dummies(data[col], prefix=col)
     data = pd.concat([data, encoded_cols], axis=1)
-    data.drop(col, axis=1, inplace=True)
 
 # Prepare data for prediction (select only relevant features)
 data_for_prediction = data[features]
