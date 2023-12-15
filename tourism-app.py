@@ -67,12 +67,12 @@ load_clf = pickle.load(open('tourism_rating.pkl', 'rb'))
 
 # Apply model to make predictions
 prediction = load_clf.predict(df)
-prediction_proba = load_clf.predict_proba(df)
+# prediction_proba = load_clf.predict_proba(df)
 
 
-# st.subheader('Prediction')
-# penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
-# st.write(penguins_species[prediction])
+st.subheader('Prediction')
+penguins_species = np.array(['User_Id','Location','Place_Id', 'Time_Minutes'])
+st.write(penguins_species[prediction])
 
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
+# st.subheader('Prediction Probability')
+# st.write(prediction_proba)
