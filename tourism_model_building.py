@@ -40,7 +40,7 @@ for col in categorical_columns:
     final_merged_df[col] = label_encoders[col].fit_transform(final_merged_df[col])
 
 # Pemilihan fitur
-features = ['User_Id',  'Place_Id', 'Time_Minutes']  # Sesuaikan dengan fitur yang ingin digunakan
+features = ['User_Id',  'Place_Id', 'Time_Minutes', 'Age', 'Price']  # Sesuaikan dengan fitur yang ingin digunakan
 
 target = 'Place_Ratings'
 
