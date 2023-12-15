@@ -43,6 +43,8 @@ load_clf = pickle.load(open('tourism_rating.pkl', 'rb'))
 
 # Load data
 data = pd.read_csv('tourism_rating_cleaned.csv')
+data.fillna(value="0", inplace=True)
+
 
 # Display uploaded data
 st.subheader('Uploaded Data')
