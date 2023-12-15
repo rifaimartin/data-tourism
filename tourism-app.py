@@ -82,6 +82,14 @@ df = df[features]  # Mengambil hanya fitur-fitur yang digunakan saat pelatihan
 st.subheader('User Input features')
 st.write(df)
 
+categorical_columns = ['Location', 'Place_Name', 'Description', 'Category', 'City']
+
+# Lakukan One-Hot Encoding pada kolom-kolom kategorikal
+for col in categorical_columns:
+    encoded_cols = pd.get_dummies(df[col], prefix=col)
+    df = pd.concat([df, encoded_cols], axis=1)
+    df.drop(col, axis=1, inplace=True)
+
 # Melakukan prediksi dengan model yang telah dimuat
 prediction = load_clf.predict(df)
 
