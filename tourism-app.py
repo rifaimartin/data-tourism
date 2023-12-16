@@ -48,11 +48,20 @@ prediction2 = load_clf.predict(data_for_prediction2)
 sorted_indices = np.argsort(prediction)[::-1]
 sorted_indices2 = np.argsort(prediction2)[::-1]
 
-# Display prediction with record index
+# Load the 'Location' column from the datasets
+location_data = data['Location']
+location_data2 = data2['Location']
+# Display prediction with record index and city name as a table
 st.subheader('Top Predictions Jawa Barat')
+table_data = []
 for idx, pred in zip(sorted_indices[:10], prediction[sorted_indices[:10]]):
-    st.write(f"Record index: {idx}, Prediction: {pred}")
+    table_data.append([idx, location_data[idx], pred])
+
+st.table(pd.DataFrame(table_data, columns=['Record Index', 'City', 'Prediction']))
 
 st.subheader('Top Predictions Sumatra')
+table_data2 = []
 for idx, pred in zip(sorted_indices2[:10], prediction2[sorted_indices2[:10]]):
-    st.write(f"Record index: {idx}, Prediction: {pred}")
+    table_data2.append([idx, location_data2[idx], pred])
+
+st.table(pd.DataFrame(table_data2, columns=['Record Index', 'City', 'Prediction']))
