@@ -48,9 +48,11 @@ prediction2 = load_clf.predict(data_for_prediction2)
 sorted_indices = np.argsort(prediction)[::-1]
 sorted_indices2 = np.argsort(prediction2)[::-1]
 
-# Display prediction
+# Display prediction with record index
 st.subheader('Top Predictions Jawa Barat')
-st.write(prediction[sorted_indices[:10]])
+for idx, pred in zip(sorted_indices[:10], prediction[sorted_indices[:10]]):
+    st.write(f"Record index: {idx}, Prediction: {pred}")
 
 st.subheader('Top Predictions Sumatra')
-st.write(prediction2[sorted_indices2[:10]])
+for idx, pred in zip(sorted_indices2[:10], prediction2[sorted_indices2[:10]]):
+    st.write(f"Record index: {idx}, Prediction: {pred}")
