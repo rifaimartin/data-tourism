@@ -75,7 +75,7 @@ data_for_prediction2 = data2[features]
 # .iloc[[0]]
 
 # Perform prediction using the loaded model
-prediction2 = load_clf.predict(data_for_prediction)
+prediction2 = load_clf.predict(data_for_prediction2)
 
 # Display prediction
 st.subheader('Prediction Jawa Barat')
