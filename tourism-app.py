@@ -9,7 +9,7 @@ st.write("""
 
 This app predicts the **Rating for place**!
 
-Data obtained from kaagle [palmerpenguins library](https://github.com/allisonhorst/palmerpenguins) in R by Allison Horst.
+Data obtained from kaagle [data tourism](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination) .
 """)
 
 st.sidebar.header('User Input Features')
