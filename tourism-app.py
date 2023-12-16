@@ -36,13 +36,17 @@ if uploaded_file is not None:
 #                 'city': city}
 #         features = pd.DataFrame(data, index=[0])
 #         return features
-#     input_df = user_input_features()
+    # input_df = user_input_features()
 
 # Load trained model
 load_clf = pickle.load(open('tourism_rating.pkl', 'rb'))
 
 # Load data
-data = pd.read_csv('tourism_rating_cleaned.csv')
+if uploaded_file is not None:
+    data = pd.read_csv('uploaded_file')
+else :
+    data = pd.read_csv('tourism_rating_cleaned.csv')
+
 data.fillna(value="0", inplace=True)
 
 
