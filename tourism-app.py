@@ -50,17 +50,16 @@ data.fillna(value="0", inplace=True)
 st.subheader('Uploaded Data')
 st.write(data)
 
-# Prepare features for prediction
+# tujuan dari pemodelan adalah untuk melakukan prediksi nilai 'Place_Ratings' yang 
+# merupakan variabel numerik atau kontinu. Linear Regression sering digunakan 
+# untuk memodelkan hubungan linier antara variabel independen (fitur) dan variabel 
+# dependen (target) dengan asumsi hubungan tersebut dapat dijelaskan melalui suatu garis lurus.
 
-# Process categorical columns using One-Hot Encoding
-# categorical_columns = ['Location']  # Categorical columns that need encoding
-# for col in categorical_columns:
-#     encoded_cols = pd.get_dummies(data[col], prefix=col)
-#     data = pd.concat([data, encoded_cols], axis=1)
 
 features = ['User_Id', 'Place_Id', 'Time_Minutes','Price']  # Sesuaikan dengan fitur yang ingin digunakan # Adjust features accordingly
 # Prepare data for prediction (select only relevant features)
-data_for_prediction = data[features].iloc[[0]]
+data_for_prediction = data[features]
+# .iloc[[0]]
 
 # Perform prediction using the loaded model
 prediction = load_clf.predict(data_for_prediction)
