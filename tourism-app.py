@@ -43,7 +43,7 @@ load_clf = pickle.load(open('tourism_rating.pkl', 'rb'))
 
 # Load data
 if uploaded_file is not None:
-    data = pd.read_csv('uploaded_file')
+    data = pd.read_csv(uploaded_file)
 else :
     data = pd.read_csv('tourism_rating_cleaned.csv')
 
