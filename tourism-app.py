@@ -46,6 +46,11 @@ data = pd.read_csv('tourism_rating_cleaned.csv')
 
 data.fillna(value="0", inplace=True)
 
+# Load data
+data2 = pd.read_csv('sumatera.csv')
+
+data2.fillna(value="0", inplace=True)
+
 
 # Display uploaded data
 st.subheader('Uploaded Data')
@@ -65,6 +70,17 @@ data_for_prediction = data[features]
 # Perform prediction using the loaded model
 prediction = load_clf.predict(data_for_prediction)
 
+
+data_for_prediction2 = data2[features]
+# .iloc[[0]]
+
+# Perform prediction using the loaded model
+prediction2 = load_clf.predict(data_for_prediction)
+
 # Display prediction
-st.subheader('Prediction')
+st.subheader('Prediction Jawa Barat')
 st.write(prediction)
+
+# Display prediction
+st.subheader('Prediction Sumatra')
+st.write(prediction2)
